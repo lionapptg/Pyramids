@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pyramids – Minted by agents on BNB Chain</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Inter:wght@400;600&display=swap">
+<style>
+:root{--bg:#eef0f8;--ink:#1d2a5b;--mute:#58628c;--card:#fff;--line:#cfd5ea;--free:#e0a21b;--paid:#17a2ab;--empty:#d5daee;--on:#fff;--code:#e3e7f5;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141c42;--ink:#eef0fb;--mute:#9aa6d6;--card:#1c2756;--line:#2f3d7a;--free:#f5c451;--paid:#43cfd6;--empty:#27346b;--on:#141c42;--code:#111835}}
+:root[data-theme="dark"]{--bg:#141c42;--ink:#eef0fb;--mute:#9aa6d6;--card:#1c2756;--line:#2f3d7a;--free:#f5c451;--paid:#43cfd6;--empty:#27346b;--on:#141c42;--code:#111835}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Inter,system-ui,sans-serif}
+main{max-width:920px;margin:0 auto;padding:24px 20px 56px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font:900 20px Cinzel,Georgia,serif;letter-spacing:.06em}
+nav a{color:var(--mute);text-decoration:none;margin-left:18px;font-size:14px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--free);outline-offset:2px}
+.hero{text-align:center;padding:36px 0 8px}
+h1{font:900 clamp(44px,11vw,104px)/1 Cinzel,Georgia,serif;margin:0 0 12px;letter-spacing:.04em}
+h2{font:700 28px/1.2 Cinzel,Georgia,serif;margin:56px 0 12px}
+.lead{color:var(--mute);max-width:50ch;margin:0 auto 28px}
+.btn{display:inline-block;font:600 15px Inter,sans-serif;cursor:pointer;border-radius:10px;border:2px solid var(--ink);background:var(--ink);color:var(--on);padding:11px 20px;text-decoration:none}
+.btn.ghost{background:transparent;color:var(--ink)}
+#pyr{display:flex;flex-direction:column;align-items:center;gap:2px;margin:36px auto 14px;max-width:560px}
+#pyr div{display:flex;gap:2px;justify-content:center;width:100%}
+#pyr i{flex:0 0 auto;width:calc((100% - 27*2px)/28);aspect-ratio:2/1;background:var(--empty);border-radius:2px;display:block}
+#pyr i.f{background:var(--free)}#pyr i.p{background:var(--paid)}
+.legend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;color:var(--mute);font-size:14px}
+.legend b{display:inline-block;width:14px;height:8px;border-radius:2px;margin-right:6px}
+.stats{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 28px}
+.stat{flex:1 1 150px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px}
+.stat small{display:block;color:var(--mute);font-size:13px}
+.stat strong{font-size:22px}
+ol{padding:0;margin:0 0 28px;list-style:none;display:grid;gap:12px}
+ol li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+ol b{display:block}
+.codebox{background:var(--code);border:1px solid var(--line);border-radius:12px;margin:0 0 18px}
+.codebox header{padding:10px 14px;border-bottom:1px solid var(--line);font-weight:600;font-size:14px}
+.codebox button{font:600 13px Inter,sans-serif;cursor:pointer;border:1px solid var(--ink);background:transparent;color:var(--ink);border-radius:8px;padding:4px 12px}
+pre{margin:0;padding:14px;overflow-x:auto;font:13px/1.6 ui-monospace,Menlo,monospace;white-space:pre}
+.check{display:flex;gap:8px;flex-wrap:wrap}
+.check input{flex:1 1 240px;font:15px Inter,sans-serif;padding:11px 14px;border-radius:10px;border:2px solid var(--line);background:var(--card);color:var(--ink)}
+#res{margin-top:10px;min-height:1.6em;font-size:15px}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}
+details p{color:var(--mute);margin:8px 0 0}
+footer{margin-top:48px;color:var(--mute);font-size:13px;text-align:center}
+.phase{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--free);border-radius:12px;padding:16px 20px;margin-bottom:12px}
+#ph2{border-left-color:var(--paid)}
+.phase small{color:var(--mute);font-size:13px}
+.phase b{display:block;font-size:18px}
+.phase p{margin:6px 0 0;color:var(--mute)}
+footer a{color:var(--mute)}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <span class="logo">PYRAMIDS</span>
+  <nav><a href="#how">How it works</a><a href="#mint">Mint</a><a href="#roadmap">Roadmap</a><a href="#faq">FAQ</a></nav>
+</header>
+
+<section class="hero">
+  <h1>Pyramids</h1>
+  <p class="lead">6,000 pyramids on BNB Chain, minted by AI agents. The first 3,200 are free. The remaining 2,800 cost 0.00085 BNB each.</p>
+  <a class="btn" href="#mint">Mint as an agent</a>
+</section>
+
+<div id="pyr" role="img" aria-label="Pyramid built from minted works"></div>
+<div class="legend">
+  <span><b style="background:var(--free)"></b>Free mint</span>
+  <span><b style="background:var(--paid)"></b>Paid mint</span>
+  <span><b style="background:var(--empty)"></b>Not minted yet</span>
+</div>
+
+<div class="stats">
+  <div class="stat"><small>Total minted</small><strong id="s-min">0</strong> / <span id="s-tot"></span></div>
+  <div class="stat"><small>Free minted</small><strong id="s-free"></strong></div>
+  <div class="stat" id="paidStat" style="display:none"><small>Paid minted</small><strong id="s-paid"></strong></div>
+  <div class="stat"><small>Phase</small><strong id="s-phase"></strong></div>
+  <div class="stat"><small>Current price</small><strong id="s-price"></strong></div>
+  <div class="stat"><small>Status</small><strong id="s-status" style="font-size:16px">Reading contract…</strong></div>
+</div>
+
+<h2 id="how">Only agents mint.</h2>
+<p class="lead" style="margin-left:0">The contract accepts calls from Binance Agentic Wallets that hold an Agent ID. Ordinary wallets are turned away on-chain.</p>
+<ol>
+  <li><b>1. Hold an Agent ID</b>Claim it in the Binance Wallet app under your Agentic Wallet.</li>
+  <li><b>2. Call mint()</b>One call, no arguments. During the free phase send 0 BNB. After the 3,200 free mints are gone, send exactly 0.00085 BNB.</li>
+  <li><b>3. Receive your pyramid</b>The block and your address make the seed, and the seed decides your pyramid.</li>
+</ol>
+
+<h2 id="mint">Mint</h2>
+<div class="stat" id="phaseNote" style="margin:0 0 18px"></div>
+<div class="codebox">
+  <header style="display:flex;justify-content:space-between;align-items:center">Prompt for your agent <button data-copy="p1">Copy</button></header>
+<pre id="p1"></pre>
+</div>
+<div class="codebox">
+  <header style="display:flex;justify-content:space-between;align-items:center">baw CLI <button data-copy="p2">Copy</button></header>
+<pre id="p2"></pre>
+</div>
+
+<h2>Check a wallet</h2>
+<div class="check"><input id="addr" placeholder="0x… wallet address" aria-label="Wallet address"><button class="btn" id="chk">Check</button></div>
+<div id="res" role="status" aria-live="polite"></div>
+
+<h2 id="roadmap">Roadmap</h2>
+<div class="phase" id="ph1"><small>Phase 1 <span id="ph1s"></span></small><b>Free mint</b><p>The first 3,200 Pyramids are minted for free. You only pay the network fee (gas). When all 3,200 are minted, free mint closes.</p></div>
+<div class="phase" id="ph2"><small>Phase 2 <span id="ph2s"></span></small><b>Paid mint</b><p>The remaining 2,800 Pyramids are minted at 0.00085 BNB each. Phase 2 opens right after Phase 1 ends.</p></div>
+
+<h2 id="faq">Notes</h2>
+<details><summary>Why only agents?</summary><p>Pyramids is about work made by software acting on its own. The contract requires an Agent ID and rejects calls from other contracts.</p></details>
+<details><summary>What decides my pyramid?</summary><p>A seed made from the block and your address at mint. The same seed always draws the same pyramid.</p></details>
+<details><summary>Is it really free?</summary><p>The first 3,200 mints cost 0 BNB, and then free mint closes for good. The remaining 2,800 are paid mints at 0.00085 BNB each. You always pay the network fee (gas) in BNB.</p></details>
+
+<footer>PYRAMIDS · 6,000 · <a id="scan" href="#" target="_blank" rel="noopener">Contract on BscScan</a></footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.2/ethers.umd.min.js"></script>
+<script>
+// ====== SETTINGS ======
+var CFG = {
+  contract: "",                         // Your deployed contract (0x...). Empty = demo data.
+  rpc: "https://bsc-dataseed.binance.org/",
+  explorer: "https://bscscan.com",
+  totalSupply: 6000,
+  freeSupply: 3200,
+  priceBnb: "0.00085",
+  priceWei: "850000000000000"
+};
+var ABI = [
+  "function totalMinted() view returns (uint256)",
+  "function currentPrice() view returns (uint256)",
+  "function balanceOf(address) view returns (uint256)"
+];
+// ======================
+var $ = function (id) { return document.getElementById(id); };
+var addr = CFG.contract || "0xYOUR_CONTRACT_ADDRESS";
+var S = { minted: 120, price: 0n, live: false };
+
+$("p1").textContent = "Mint one Pyramid on BNB Chain (chain id 56).\nContract: " + addr + "\nCall mint() with calldata 0x1249c58b.\nValue: read currentPrice() on the contract and send exactly that.";
+$("p2").textContent = "baw contract-call preview --binanceChainId 56 \\\n  --from <your agentic wallet> \\\n  --to " + addr + " \\\n  --value <currentPrice() in wei> --inputData 0x1249c58b --json\n\nbaw contract-call execute --requestId <requestId> --json";
+$("scan").href = CFG.explorer + "/address/" + addr;
+
+document.querySelectorAll("[data-copy]").forEach(function (b) {
+  b.onclick = function () {
+    var t = $(b.dataset.copy).textContent;
+    function done() { b.textContent = "Copied"; setTimeout(function () { b.textContent = "Copy"; }, 1500); }
+    if (navigator.clipboard) navigator.clipboard.writeText(t).then(done, fallback); else fallback();
+    function fallback() { var a = document.createElement("textarea"); a.value = t; document.body.appendChild(a); a.select(); try { document.execCommand("copy"); done(); } catch (e) {} a.remove(); }
+  };
+});
+
+function render() {
+  var rows = 28, total = 406, idx = 0, html = "", r, i;
+  for (r = 1; r <= rows; r++) {
+    html += "<div>";
+    for (i = 0; i < r; i++, idx++) {
+      var n = Math.floor(idx * CFG.totalSupply / total), isFree = n < CFG.freeSupply;
+      html += '<i class="' + (n < S.minted ? (isFree ? "f" : "p") : "") + '"></i>';
+    }
+    html += "</div>";
+  }
+  $("pyr").innerHTML = html;
+  $("s-min").textContent = S.minted;
+  $("s-tot").textContent = CFG.totalSupply.toLocaleString("en-US");
+  var free = S.minted < CFG.freeSupply;
+  $("s-free").textContent = Math.min(S.minted, CFG.freeSupply).toLocaleString("en-US") + " / " + CFG.freeSupply.toLocaleString("en-US");
+  $("s-paid").textContent = Math.max(0, S.minted - CFG.freeSupply).toLocaleString("en-US") + " / " + (CFG.totalSupply - CFG.freeSupply).toLocaleString("en-US");
+  $("s-phase").textContent = S.minted >= CFG.totalSupply ? "Sold out" : (free ? "Free" : "Paid");
+  $("s-price").textContent = free ? "0 BNB" : (S.live ? ethers.formatEther(S.price) : CFG.priceBnb) + " BNB";
+  $("s-status").textContent = S.live ? "Live" : "Demo data";
+  $("paidStat").style.display = free ? "none" : "";
+  var allDone = S.minted >= CFG.totalSupply;
+  $("ph1s").textContent = free ? "· Live now" : "· Completed";
+  $("ph2s").textContent = allDone ? "· Completed" : free ? "· Up next" : "· Live now";
+  setPrompts();
+}
+
+function setPrompts() {
+  var free = S.minted < CFG.freeSupply, sold = S.minted >= CFG.totalSupply;
+  var wei = free ? "0" : CFG.priceWei;
+  var bnb = free ? "0 BNB" : CFG.priceBnb + " BNB (" + wei + " wei)";
+  $("p1").textContent = "Mint one Pyramid on BNB Chain (chain id 56).\nContract: " + addr + "\nCall mint() with calldata 0x1249c58b.\nValue: send exactly " + bnb + ". Read currentPrice() first and make sure it matches.";
+  $("p2").textContent = "baw contract-call preview --binanceChainId 56 \\\n  --from <your agentic wallet> \\\n  --to " + addr + " \\\n  --value " + wei + " --inputData 0x1249c58b --json\n\nbaw contract-call execute --requestId <requestId> --json";
+  $("p1").parentNode.style.display = $("p2").parentNode.style.display = sold ? "none" : "";
+  var fl = CFG.freeSupply - S.minted, pl = CFG.totalSupply - S.minted;
+  $("phaseNote").textContent = sold ? "Sold out. All 6,000 Pyramids have been minted." : free ? "Free mint is open: " + fl.toLocaleString("en-US") + " free mints left. When they are gone, free mint closes and paid mint opens at " + CFG.priceBnb + " BNB." : "Free mint is closed. Paid mint is open at " + CFG.priceBnb + " BNB: " + pl.toLocaleString("en-US") + " left.";
+}
+
+async function load() {
+  if (!CFG.contract) { render(); return; }
+  try {
+    var c = new ethers.Contract(CFG.contract, ABI, new ethers.JsonRpcProvider(CFG.rpc));
+    S.minted = Number(await c.totalMinted());
+    S.price = await c.currentPrice();
+    S.live = true;
+  } catch (e) { $("s-status").textContent = "Contract unavailable"; }
+  render();
+}
+
+$("chk").onclick = async function () {
+  var a = $("addr").value.trim(), out = $("res");
+  if (!/^0x[0-9a-fA-F]{40}$/.test(a)) { out.textContent = "Enter a valid wallet address."; return; }
+  if (!S.live) { out.textContent = "Wallet check works once the contract is live."; return; }
+  try {
+    var c = new ethers.Contract(CFG.contract, ABI, new ethers.JsonRpcProvider(CFG.rpc));
+    var b = Number(await c.balanceOf(a));
+    out.textContent = b > 0 ? "This wallet holds " + b + " Pyramid" + (b > 1 ? "s" : "") + "." : "This wallet has not minted yet.";
+  } catch (e) { out.textContent = "Could not read the contract."; }
+};
+
+render(); load();
+</script>
+</body>
+</html>
